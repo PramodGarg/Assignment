@@ -6,13 +6,14 @@ import android.arch.lifecycle.ViewModel
 import android.arch.paging.LivePagedListBuilder
 import android.arch.paging.PagedList
 import github.pramodgarg.indwealthassignment.funds.paging.FundDataFactory
-import github.pramodgarg.indwealthassignment.funds.paging.FundPageKeyedDataSource
 import github.pramodgarg.indwealthassignment.network.Fund
+import github.pramodgarg.indwealthassignment.network.INITIAL_PAGE_SIZE
+import github.pramodgarg.indwealthassignment.network.PAGE_SIZE
 
 class FundsViewModel : ViewModel() {
 
     val networkState: LiveData<Int>
-    val fundLiveData: LiveData<PagedList<Fund>>
+    val fundsLiveData: LiveData<PagedList<Fund>>
     val dataFactory: FundDataFactory = FundDataFactory()
 
 
@@ -21,10 +22,10 @@ class FundsViewModel : ViewModel() {
 
         val pageListConfig = PagedList.Config.Builder()
                 .setEnablePlaceholders(false)
-                .setInitialLoadSizeHint(10)
-                .setPageSize(10)
+                .setInitialLoadSizeHint(INITIAL_PAGE_SIZE)
+                .setPageSize(PAGE_SIZE)
                 .build()
 
-        fundLiveData = (LivePagedListBuilder(dataFactory, pageListConfig)).build()
+        fundsLiveData = (LivePagedListBuilder(dataFactory, pageListConfig)).build()
     }
 }

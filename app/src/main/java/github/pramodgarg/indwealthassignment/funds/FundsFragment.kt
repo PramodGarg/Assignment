@@ -12,6 +12,9 @@ import android.view.ViewGroup
 import github.pramodgarg.indwealthassignment.R
 import github.pramodgarg.indwealthassignment.funds.adapter.FundsAdapter
 import github.pramodgarg.indwealthassignment.network.Fund
+import github.pramodgarg.indwealthassignment.utils.gone
+import github.pramodgarg.indwealthassignment.utils.isGone
+import github.pramodgarg.indwealthassignment.utils.visible
 import kotlinx.android.synthetic.main.fragment_funds.*
 
 class FundsFragment : Fragment() {
@@ -34,11 +37,15 @@ class FundsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecyclerView()
-        viewModel.fundLiveData.observe(this, Observer<PagedList<Fund>> { list -> list?.let { adapter.submitList(it) } })
+        viewModel.fundsLiveData.observe(
+            this,
+            Observer<PagedList<Fund>> { list -> list?.let { adapter.submitList(it) } })
         viewModel.networkState.observe(this, Observer<Int> { state ->
 
-            if (state == FundsAdapter.LOADED && swipeRefresh.isRefreshing) {
-                swipeRefresh.isRefreshing = false
+            if (state == FundsAdapter.LOADED) {
+                if (swipeRefresh.isRefreshing) swipeRefresh.isRefreshing = false
+                if (swipeRefresh.isGone()) swipeRefresh.visible()
+                loader.gone()
             }
             state?.let { adapter.setNetworkStatus(it) }
         })

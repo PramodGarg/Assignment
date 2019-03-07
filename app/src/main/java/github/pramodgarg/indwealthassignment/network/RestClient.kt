@@ -38,6 +38,8 @@ object RestClient {
     }
 }
 
+const val INITIAL_PAGE_SIZE = 20
+const val PAGE_SIZE = 16
 
 fun getHeaderParams(): HashMap<String, String> {
     return hashMapOf("Authorization" to "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMDI2LCJ1c2VybmFtZSI6Ijk5MTAzMzUwMzMiLCJleHAiOjE1NTE5NjI2ODIsImVtYWlsIjoiS0FTSFlBUEFTSElTSEBHTUFJTC5DT00iLCJtb2JpbGUiOiI5OTEwMzM1MDMzIn0.IEdzEeRCjglPzQWf-FYLvCoKBnBK6ao0a26Ez5OANBc")
