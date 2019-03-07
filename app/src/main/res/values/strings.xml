@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">IndWealthAssignment</string>
+
+
+    <string name="label_one_year_returns">1 Yr Returns</string>
+    <string name="label_aum">aum</string>
+    <string name="label_expense_ratio">Expense Ratio</string>
+
+    <string name="amount_in_cr">%sCr</string>
 </resources>

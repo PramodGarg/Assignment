@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="2dp"
+        android:padding="4dp"
+        android:layout_height="wrap_content">
+
+
+    <android.support.v7.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="2dp"
+            android:background="@android:color/white"
+            android:padding="8dp"
+            android:layout_height="wrap_content">
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:padding="8dp"
+                android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvName"
+                    style="@style/TextViewHeading"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/tvRating"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="IDBI Hybrid Equity Fund Direct Dividend Reinvestment"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvRating"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_grey"
+                    android:padding="4dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvName"
+                    tools:text="2.4"/>
+
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvFundType"
+                    style="@style/TextViewChips"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@id/tvName"
+                    app:layout_constraintTop_toBottomOf="@id/tvName"
+                    tools:text="Hybrid"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvRisk"
+                    style="@style/TextViewChips"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvFundType"
+                    app:layout_constraintStart_toEndOf="@id/tvFundType"
+                    app:layout_constraintTop_toTopOf="@id/tvFundType"
+                    tools:text="Moderately High Risk"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvPlanType"
+                    style="@style/TextViewChips"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvFundType"
+                    app:layout_constraintStart_toEndOf="@id/tvRisk"
+                    app:layout_constraintTop_toTopOf="@id/tvFundType"
+                    tools:text="Direct"/>
+
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvLabel1Year"
+                    style="@style/TextViewLabels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/label_one_year_returns"
+                    app:layout_constraintStart_toStartOf="@id/tvFundType"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFundType"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv1Year"
+                    style="@style/TextViewValues"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintStart_toStartOf="@id/tvFundType"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLabel1Year"
+                    tools:text="-2.58%"/>
+
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvLabelAum"
+                    style="@style/TextViewLabels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_aum"
+                    android:textAllCaps="true"
+                    app:layout_constraintEnd_toStartOf="@id/tvLabelExpenseRatio"
+                    app:layout_constraintStart_toEndOf="@id/tvFundType"
+                    app:layout_constraintTop_toTopOf="@+id/tvLabel1Year"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvAum"
+                    style="@style/TextViewValues"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/tvLabelAum"
+                    app:layout_constraintTop_toTopOf="@+id/tv1Year"
+                    tools:text="-1.23Cr"/>
+
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvLabelExpenseRatio"
+                    style="@style/TextViewLabels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_expense_ratio"
+                    app:layout_constraintEnd_toEndOf="@id/glEndLabels"
+                    app:layout_constraintTop_toTopOf="@+id/tvLabel1Year"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvExpenseRatios"
+                    style="@style/TextViewValues"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintStart_toStartOf="@id/tvLabelExpenseRatio"
+                    app:layout_constraintTop_toTopOf="@+id/tv1Year"
+                    tools:text="-2.58%"/>
+
+
+            <android.support.constraint.Guideline
+                    android:id="@+id/glEndLabels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.85"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+</FrameLayout>
