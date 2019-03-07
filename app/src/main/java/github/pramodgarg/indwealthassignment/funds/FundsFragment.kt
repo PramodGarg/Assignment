@@ -35,7 +35,18 @@ class FundsFragment : Fragment() {
 
         setupRecyclerView()
         viewModel.fundLiveData.observe(this, Observer<PagedList<Fund>> { list -> list?.let { adapter.submitList(it) } })
-        viewModel.networkState.observe(this, Observer<Int> { state -> state?.let { adapter.setNetworkStatus(it) } })
+        viewModel.networkState.observe(this, Observer<Int> { state ->
+
+            if (state == FundsAdapter.LOADED && swipeRefresh.isRefreshing) {
+                swipeRefresh.isRefreshing = false
+            }
+            state?.let { adapter.setNetworkStatus(it) }
+        })
+
+        swipeRefresh.setOnRefreshListener {
+            swipeRefresh.isRefreshing = true
+            viewModel.dataFactory.fundDataSource.invalidate()
+        }
 
     }
 

@@ -39,7 +39,7 @@ class FundPageKeyedDataSource : PageKeyedDataSource<Int, Fund>() {
         RestClient.apiInterface.getTop(body, getHeaderParams()).enqueue(object : Callback<FundsResponse> {
             override fun onFailure(call: Call<FundsResponse>, t: Throwable) {
                 Log.e("", t.localizedMessage)
-               // networkState.postValue(FundsAdapter.LOADED)
+                networkState.postValue(FundsAdapter.LOADED)
             }
 
             override fun onResponse(call: Call<FundsResponse>, response: Response<FundsResponse>) {

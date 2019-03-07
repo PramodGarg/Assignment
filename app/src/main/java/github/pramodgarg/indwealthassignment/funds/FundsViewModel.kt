@@ -13,7 +13,7 @@ class FundsViewModel : ViewModel() {
 
     val networkState: LiveData<Int>
     val fundLiveData: LiveData<PagedList<Fund>>
-    val dataFactory: FundDataFactory = FundDataFactory(FundPageKeyedDataSource())
+    val dataFactory: FundDataFactory = FundDataFactory()
 
 
     init {
